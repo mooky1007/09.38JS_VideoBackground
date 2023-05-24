@@ -1,0 +1,203 @@
+<script src="https://kit.fontawesome.com/e4e94b66e3.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background: #222;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .inner_body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 400px;
+        padding: 50px 0;
+        background: #222;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+    }
+
+    .menu_container {
+        background-color: #fff;
+        width: 500px;
+        height: 500px;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 6px rgba(0,0,0, 0.5);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .menu_header {
+        font-size: 24px;
+        font-weight: 600;
+        color: #222;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu_list,
+    .menu_button_area {
+        width: 100%;
+    }
+
+    .menu_list ul,
+    .menu_button_area ul {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+    }
+    
+    .menu_list ul li {
+        width: 50%;
+    }
+
+    .menu_button_area {
+        margin: 20px 0;
+    }
+
+    .menu_button_area ul{
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu_button_area ul li {
+        list-style: none;
+        margin: 0 5px;
+    }
+
+    .menu_button_area ul li button {
+        background-color: transparent;
+        border: none;
+        background: #eee;
+        padding: 5px 15px;
+        border-radius: 100px;
+        cursor: pointer;
+    }
+
+    .menu_button_area ul li button.active {
+        background: #222;
+        color: #fff;
+    }
+</style>
+
+<div class="inner_body">
+    <div class="menu_container" data-filter-id="asign_food01">
+        <div class="menu_header">Asian Food</div>
+        <div class="menu_button_area">
+            <ul>
+                <li><button type="button" data-filter="all" class="active">All</button></li>
+                <li><button type="button" data-filter="kor">Korea</button></li>
+                <li><button type="button" data-filter="jp">Japan</button></li>
+                <li><button type="button" data-filter="ch">China</button></li>
+            </ul>
+        </div>
+        <div class="menu_list">
+            <ul>
+                <li data-filter="kor">Bibimbab</li>
+                <li data-filter="jp">Sushi</li>
+                <li data-filter="ch">Dimsum</li>
+                <li data-filter="kor">Samgyeopsal</li>
+                <li data-filter="jp">Sashimi</li>
+                <li data-filter="ch">Spring Roll</li>
+                <li data-filter="kor">Japchae</li>
+                <li data-filter="jp">Ramen</li>
+                <li data-filter="ch">Wonton</li>
+                <li data-filter="kor">Kimchi</li>
+                <li data-filter="jp">Soba</li>
+                <li data-filter="ch">Tangbao</li>
+                <li data-filter="kor">Tteokbokki</li>
+                <li data-filter="jp">Yakitori</li>
+                <li data-filter="ch">Dumpling</li>
+                <li data-filter="kor">Jajangmyeon</li>
+                <li data-filter="jp">Tempura</li>
+                <li data-filter="ch">Chow Mein</li>
+                <li data-filter="kor">Haemul Pajeon</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu_container" data-filter-id="asign_food01">
+        <div class="menu_header">Asian Food</div>
+        <div class="menu_button_area">
+            <ul>
+                <li><button type="button" data-filter="all" class="active">All</button></li>
+                <li><button type="button" data-filter="kor">Korea</button></li>
+                <li><button type="button" data-filter="jp">Japan</button></li>
+                <li><button type="button" data-filter="ch">China</button></li>
+            </ul>
+        </div>
+        <div class="menu_list">
+            <ul>
+                <li data-filter="kor">Bibimbab</li>
+                <li data-filter="jp">Sushi</li>
+                <li data-filter="ch">Dimsum</li>
+                <li data-filter="kor">Samgyeopsal</li>
+                <li data-filter="jp">Sashimi</li>
+                <li data-filter="ch">Spring Roll</li>
+                <li data-filter="kor">Japchae</li>
+                <li data-filter="jp">Ramen</li>
+                <li data-filter="ch">Wonton</li>
+                <li data-filter="kor">Kimchi</li>
+                <li data-filter="jp">Soba</li>
+                <li data-filter="ch">Tangbao</li>
+                <li data-filter="kor">Tteokbokki</li>
+                <li data-filter="jp">Yakitori</li>
+                <li data-filter="ch">Dumpling</li>
+                <li data-filter="kor">Jajangmyeon</li>
+                <li data-filter="jp">Tempura</li>
+                <li data-filter="ch">Chow Mein</li>
+                <li data-filter="kor">Haemul Pajeon</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    const filterMenuInit = () => {
+        const filters = document.querySelectorAll('[data-filter-id]');
+
+        filters.forEach(filter => {
+            const filterBtns = [...filter.querySelectorAll('[data-filter]')].filter(el => el.nodeName === 'BUTTON');
+            const filterLists = [...filter.querySelectorAll('[data-filter]')].filter(el => el.nodeName === 'LI');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filterType = btn.getAttribute('data-filter');
+
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    filterLists.forEach(list => {
+                        if (filterType === 'all'){
+                            list.style.display = 'list-item';
+                            return;
+                        }
+                        
+                        list.style.display = list.getAttribute('data-filter') === filterType ? 'list-item' : 'none';
+                    })
+                });
+            })
+        })
+    };
+    
+    filterMenuInit();
+</script>
