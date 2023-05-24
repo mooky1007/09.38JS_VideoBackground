@@ -28,176 +28,68 @@
         position: relative;
     }
 
-    .menu_container {
-        background-color: #fff;
-        width: 500px;
-        height: 500px;
-        padding: 20px;
-        box-sizing: border-box;
-        box-shadow: 3px 3px 6px rgba(0,0,0, 0.5);
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 10px;
-    }
-
-    .menu_header {
-        font-size: 24px;
-        font-weight: 600;
-        color: #222;
-        margin: 0;
-        padding: 0;
-    }
-
-    .menu_list,
-    .menu_button_area {
+    .video_section {
         width: 100%;
+        height: 600px;
+        position: relative;
+        overflow: hidden;
     }
 
-    .menu_list ul,
-    .menu_button_area ul {
-        display: flex;
+    .video_section video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 100%;
-        margin: 0;
-        padding: 0 20px;
-        box-sizing: border-box;
-        flex-wrap: wrap;
-    }
-    
-    .menu_list ul li {
-        width: 50%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    .menu_button_area {
-        margin: 20px 0;
-    }
-
-    .menu_button_area ul{
+    .video_section .controller {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
         display: flex;
-        justify-content: center;
     }
 
-    .menu_button_area ul li {
-        list-style: none;
-        margin: 0 5px;
-    }
-
-    .menu_button_area ul li button {
-        background-color: transparent;
+    .video_section .controller button {
         border: none;
-        background: #eee;
+        background-color: #000;
+        color: #fff;
         padding: 5px 15px;
-        border-radius: 100px;
+        margin: 0 5px;
         cursor: pointer;
     }
 
-    .menu_button_area ul li button.active {
-        background: #222;
-        color: #fff;
+    .video_section .controller button:hover {
+        background-color: orange;
     }
 </style>
 
 <div class="inner_body">
-    <div class="menu_container" data-filter-id="asign_food01">
-        <div class="menu_header">Asian Food</div>
-        <div class="menu_button_area">
-            <ul>
-                <li><button type="button" data-filter="all" class="active">All</button></li>
-                <li><button type="button" data-filter="kor">Korea</button></li>
-                <li><button type="button" data-filter="jp">Japan</button></li>
-                <li><button type="button" data-filter="ch">China</button></li>
-            </ul>
-        </div>
-        <div class="menu_list">
-            <ul>
-                <li data-filter="kor">Bibimbab</li>
-                <li data-filter="jp">Sushi</li>
-                <li data-filter="ch">Dimsum</li>
-                <li data-filter="kor">Samgyeopsal</li>
-                <li data-filter="jp">Sashimi</li>
-                <li data-filter="ch">Spring Roll</li>
-                <li data-filter="kor">Japchae</li>
-                <li data-filter="jp">Ramen</li>
-                <li data-filter="ch">Wonton</li>
-                <li data-filter="kor">Kimchi</li>
-                <li data-filter="jp">Soba</li>
-                <li data-filter="ch">Tangbao</li>
-                <li data-filter="kor">Tteokbokki</li>
-                <li data-filter="jp">Yakitori</li>
-                <li data-filter="ch">Dumpling</li>
-                <li data-filter="kor">Jajangmyeon</li>
-                <li data-filter="jp">Tempura</li>
-                <li data-filter="ch">Chow Mein</li>
-                <li data-filter="kor">Haemul Pajeon</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="menu_container" data-filter-id="asign_food01">
-        <div class="menu_header">Asian Food</div>
-        <div class="menu_button_area">
-            <ul>
-                <li><button type="button" data-filter="all" class="active">All</button></li>
-                <li><button type="button" data-filter="kor">Korea</button></li>
-                <li><button type="button" data-filter="jp">Japan</button></li>
-                <li><button type="button" data-filter="ch">China</button></li>
-            </ul>
-        </div>
-        <div class="menu_list">
-            <ul>
-                <li data-filter="kor">Bibimbab</li>
-                <li data-filter="jp">Sushi</li>
-                <li data-filter="ch">Dimsum</li>
-                <li data-filter="kor">Samgyeopsal</li>
-                <li data-filter="jp">Sashimi</li>
-                <li data-filter="ch">Spring Roll</li>
-                <li data-filter="kor">Japchae</li>
-                <li data-filter="jp">Ramen</li>
-                <li data-filter="ch">Wonton</li>
-                <li data-filter="kor">Kimchi</li>
-                <li data-filter="jp">Soba</li>
-                <li data-filter="ch">Tangbao</li>
-                <li data-filter="kor">Tteokbokki</li>
-                <li data-filter="jp">Yakitori</li>
-                <li data-filter="ch">Dumpling</li>
-                <li data-filter="kor">Jajangmyeon</li>
-                <li data-filter="jp">Tempura</li>
-                <li data-filter="ch">Chow Mein</li>
-                <li data-filter="kor">Haemul Pajeon</li>
-            </ul>
-        </div>
+    <div class="inner_body">
+        <section class="video_section">
+            <video autoplay muted loop>
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4 ">
+            </video>
+            <div class="controller">
+                <button type="button">Play</button>
+                <button type="button">Pause</button>
+            </div>
+        </section>
     </div>
 </div>
 
 <script>
-    const filterMenuInit = () => {
-        const filters = document.querySelectorAll('[data-filter-id]');
+    const video = document.querySelector('.video_section video');
+    const playBtn = document.querySelector('.video_section .controller button:first-child');
+    const pauseBtn = document.querySelector('.video_section .controller button:last-child');
 
-        filters.forEach(filter => {
-            const filterBtns = [...filter.querySelectorAll('[data-filter]')].filter(el => el.nodeName === 'BUTTON');
-            const filterLists = [...filter.querySelectorAll('[data-filter]')].filter(el => el.nodeName === 'LI');
+    playBtn.addEventListener('click', () => {
+        video.play();
+    });
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filterType = btn.getAttribute('data-filter');
-
-                    filterBtns.forEach(btn => btn.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    filterLists.forEach(list => {
-                        if (filterType === 'all'){
-                            list.style.display = 'list-item';
-                            return;
-                        }
-                        
-                        list.style.display = list.getAttribute('data-filter') === filterType ? 'list-item' : 'none';
-                    })
-                });
-            })
-        })
-    };
-    
-    filterMenuInit();
+    pauseBtn.addEventListener('click', () => {
+        video.pause();
+    });
 </script>
